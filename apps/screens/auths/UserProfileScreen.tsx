@@ -6,7 +6,7 @@ const handleSignOut = () => {
   firebase
     .auth()
     .signOut()
-    .then(() => {})
+    .then(() => { })
     .catch(error => console.log(error));
 };
 
