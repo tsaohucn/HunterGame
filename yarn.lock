@@ -2863,6 +2863,14 @@ expo-font@~8.2.1:
     fbjs "1.0.0"
     fontfaceobserver "^2.1.0"
 
+expo-image-picker@^8.4.0:
+  version "8.4.0"
+  resolved "https://registry.yarnpkg.com/expo-image-picker/-/expo-image-picker-8.4.0.tgz#b4a7c06411f1b190cb6fb695a3cdf0fb8f29dfb2"
+  integrity sha512-XvBNxC5ZXJN9Vsvr+QFk9PYJW1PP7YoPqprFfoBeg1/eBtCAEjgqdQ2o/Ak1RQoCqwg8SEKxxHtQpGogZZCx5g==
+  dependencies:
+    expo-permissions "~9.1.0"
+    uuid "7.0.2"
+
 expo-keep-awake@~8.2.1:
   version "8.2.1"
   resolved "https://registry.yarnpkg.com/expo-keep-awake/-/expo-keep-awake-8.2.1.tgz#a7956ad0fa80eb6ac6a28bb7242408e87c493677"
@@ -2884,12 +2892,24 @@ expo-linking@~1.0.3:
     qs "^6.5.0"
     url-parse "^1.4.4"
 
+expo-location@^8.3.0:
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/expo-location/-/expo-location-8.3.0.tgz#79250485f3d15bb50fd37060b3bd5e18c9040ded"
+  integrity sha512-4DuFBP1nqfLyy/vpQ7rmvIGSqf2fvAy+g0gGrU0msRrGXZJzic1ZqINzuyxopZzzbYCK561zcarpRyd/8DpttQ==
+  dependencies:
+    invariant "^2.2.4"
+
 expo-location@~8.2.1:
   version "8.2.1"
   resolved "https://registry.yarnpkg.com/expo-location/-/expo-location-8.2.1.tgz#5ea6bfd3d211939117416da151f1384caa15e0db"
   integrity sha512-MixKapt3nijAxyjIISscBzdKi8bwh0H/dWYsL2mCofrjguFHOh2gP07h95902lekb7NVqybl5AIQRW5cvrG4rQ==
   dependencies:
     invariant "^2.2.4"
+
+expo-permissions@^9.1.0, expo-permissions@~9.1.0:
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/expo-permissions/-/expo-permissions-9.1.0.tgz#b830a9e8100d5650a874122b432a65ab1dfdf4c1"
+  integrity sha512-nNF8voeRSzMCIJzt27dmpHHm70ZiZh528GJJzHd9qX9aIgrN2j0WsrFI31p7Q8uPUI8HDCBbF7JmvO91GmFrhQ==
 
 expo-permissions@~9.0.1:
   version "9.0.1"
@@ -3548,6 +3568,11 @@ inquirer@^3.0.6:
     string-width "^2.1.0"
     strip-ansi "^4.0.0"
     through "^2.3.6"
+
+install@^0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/install/-/install-0.13.0.tgz#6af6e9da9dd0987de2ab420f78e60d9c17260776"
+  integrity sha512-zDml/jzr2PKU9I8J/xyZBQn8rPCAY//UOYNmR01XwNwyfhEWObo2SWfSl1+0tm1u6PhxLwDnfsT/6jB7OUxqFA==
 
 invariant@^2.2.2, invariant@^2.2.4:
   version "2.2.4"
@@ -6035,6 +6060,11 @@ utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
+
+uuid@7.0.2:
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.2.tgz#7ff5c203467e91f5e0d85cfcbaaf7d2ebbca9be6"
+  integrity sha512-vy9V/+pKG+5ZTYKf+VcphF5Oc6EFiu3W8Nv3P3zIh0EqVI80ZxOzuPfe9EHjkFNvf8+xuTHVeei4Drydlx4zjw==
 
 uuid@^3.3.2, uuid@^3.4.0:
   version "3.4.0"
