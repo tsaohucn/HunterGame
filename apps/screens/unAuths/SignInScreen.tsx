@@ -3,14 +3,14 @@ import { Button, StyleSheet, TextInput, View } from "react-native";
 import firebase from "../../configs/Firebase";
 
 const SignInScreen = () => {
-  const [account, onChangeAccount] = useState();
-  const [password, onChangePassword] = useState();
+  const [account, onChangeAccount] = useState('test@gmail.com');
+  const [password, onChangePassword] = useState('123456');
 
   const handleSignUp = () => {
     firebase
       .auth()
       .createUserWithEmailAndPassword(account, password)
-      .then(() => {})
+      .then(() => { })
       .catch((error) => alert(error));
   };
 
@@ -18,18 +18,20 @@ const SignInScreen = () => {
     firebase
       .auth()
       .signInWithEmailAndPassword(account, password)
-      .then(() => {})
+      .then(() => { })
       .catch((error) => alert(error));
   };
 
   return (
     <View style={styles.container}>
       <TextInput
+        defaultValue={'test@gmail.com'}
         style={styles.textInput}
         onChangeText={(text) => onChangeAccount(text)}
         value={account}
       />
       <TextInput
+        defaultValue={'123456'}
         style={styles.textInput}
         onChangeText={(text) => onChangePassword(text)}
         value={password}
