@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import MapView from 'react-native-maps';
+import MapView, { Marker } from 'react-native-maps';
+import Avatar from "../../views/Avatar";
 
 const MapScreen = () => {
   return (
@@ -12,7 +13,14 @@ const MapScreen = () => {
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421,
       }}
-    />
+    >
+      <Marker coordinate={{
+        latitude: 37.78825,
+        longitude: -122.4324,
+      }}>
+        <Avatar uri={'https://i.ytimg.com/vi/uYwefisyGkY/maxresdefault.jpg'} size={60} />
+      </Marker>
+    </MapView>
   );
 };
 
