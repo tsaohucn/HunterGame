@@ -6,6 +6,7 @@ import HomeScreen from './screens/auths/HomeScreen'
 import MapScreen from './screens/auths/MapScreen'
 import UserProfileScreen from './screens/auths/UserProfileScreen'
 import SignInScreen from './screens/unAuths/SignInScreen'
+import SignUpScreen from './screens/unAuths/SignUpScreen'
 import Avatar from './views/Avatar'
 
 const Stack = createStackNavigator()
@@ -62,17 +63,22 @@ const Router = ({ }) => {
             <Stack.Screen name={'UserProfile'} component={UserProfileScreen} />
           </>
         ) : (
-            // No token found, user isn't signed in
-            <Stack.Screen
-              name={'SignIn'}
-              component={SignInScreen}
-            // options={{
-            //   title: "Sign in",
-            //   // When logging out, a pop animation feels intuitive
-            //   // You can remove this if you want the default 'push' animation
-            //   animationTypeForReplace: state.isSignout ? "pop" : "push",
-            // }}
-            />
+            <>
+              <Stack.Screen
+                name={'SignIn'}
+                component={SignInScreen}
+                options={{
+                  title: '立即登入'
+                }}
+              />
+              <Stack.Screen
+                name={'SignUp'}
+                component={SignUpScreen}
+                options={{
+                  title: '立即註冊',
+                }}
+              />
+            </>
           )}
       </Stack.Navigator>
     )

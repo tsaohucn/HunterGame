@@ -1,26 +1,28 @@
-import React, { useState } from "react";
-import { Button, StyleSheet, TextInput, View } from "react-native";
-import firebase from "../../configs/Firebase";
+import React, { useState } from 'react'
+import { StyleSheet, TextInput, View } from 'react-native'
+import firebase from '../../configs/Firebase'
+import { scale } from '../../tools'
+import Button from '../../views/Button'
 
-const SignInScreen = () => {
-  const [account, onChangeAccount] = useState('test@gmail.com');
-  const [password, onChangePassword] = useState('123456');
+const SignInScreen = ({ navigation }: any) => {
+  const [account, onChangeAccount] = useState('test@gmail.com')
+  const [password, onChangePassword] = useState('123456')
 
-  const handleSignUp = () => {
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(account, password)
-      .then(() => { })
-      .catch((error) => alert(error));
-  };
+  // const handleSignUp = () => {
+  //   firebase
+  //     .auth()
+  //     .createUserWithEmailAndPassword(account, password)
+  //     .then(() => { })
+  //     .catch((error) => alert(error))
+  // }
 
-  const handleSignIn = () => {
+  const signIn = () => {
     firebase
       .auth()
       .signInWithEmailAndPassword(account, password)
       .then(() => { })
-      .catch((error) => alert(error));
-  };
+      .catch((error) => alert(error))
+  }
 
   return (
     <View style={styles.container}>
@@ -36,25 +38,44 @@ const SignInScreen = () => {
         onChangeText={(text) => onChangePassword(text)}
         value={password}
       />
-      <Button title="註冊" onPress={handleSignUp} />
-      <Button title="登入" onPress={handleSignIn} />
+      <Button
+        title={'登入'}
+        onPress={signIn}
+        containerStyle={styles.signButton}
+      />
+      <Button
+        title={'立即註冊'}
+        onPress={() => {
+          navigation?.navigate('SignUp')
+        }}
+        containerStyle={styles.signButton}
+      />
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "space-around",
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    paddingHorizontal: '5%',
   },
   textInput: {
-    width: 100,
-    height: 40,
-    borderColor: "gray",
-    borderWidth: 1,
+    width: '100%',
+    aspectRatio: 10,
+    borderColor: '#d9d9d9',
+    borderWidth: scale(1),
+    borderRadius: scale(5),
+    paddingHorizontal: scale(10),
+    marginTop: scale(50),
   },
-});
+  signButton: {
+    width: '100%',
+    aspectRatio: 8,
+    borderRadius: scale(10),
+    marginTop: scale(50),
+  },
+})
 
-export default SignInScreen;
+export default SignInScreen
