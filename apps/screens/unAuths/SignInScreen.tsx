@@ -36,7 +36,7 @@ const SignInScreen = ({ navigation }: any) => {
 
   const facebook = async () => {
     try {
-      await Facebook.initializeAsync('<APP_ID>');
+      await Facebook.initializeAsync('1485014125025655');
       const facebookResult = await Facebook.logInWithReadPermissionsAsync({
         permissions: ['public_profile'],
       });
@@ -47,44 +47,23 @@ const SignInScreen = ({ navigation }: any) => {
         token,
         type
       } = facebookResult as FaceBookResult
-      console.log("------facebookResult------", facebookResult)
       if (type === 'success') {
         // Get the user's name using Facebook's Graph API
-        const response = await fetch(`https://graph.facebook.com/me?access_token=${token}`);
-        const responseString = await response?.json()
-        console.log("---------response id --------", responseString?.id)
-        console.log("---------response name--------", responseString?.name)
-
-        // alert('Logged in!');
+        // const response = await fetch(`https://graph.facebook.com/me?access_token=${token}`);
+        // const responseString = await response?.json()
+        // console.log("---------response id --------", responseString?.id)
+        // console.log("---------response name--------", responseString?.name)
+        const credential = firebase.auth.FacebookAuthProvider.credential(token)
+        const response = await firebase.auth().signInWithCredential(credential)
+        console.log("--------response------", response?.user)
       } else {
         // type === 'cancel'
       }
-    } catch ({ message }) {
-      alert(`Facebook Login Error: ${message}`);
+    } catch (error) {
+      alert(error?.message)
     }
   }
 
-  const facebookB = () => {
-    const facebookProvider = new firebase.auth.FacebookAuthProvider();
-
-    firebase.auth().signInWithPopup(facebookProvider).then((result) => {
-      console.log("-------result-----", result)
-      // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-      //var token = result.credential.accessToken;
-      // The signed-in user info.
-      //var user = result.user;
-      // ...
-    }).catch(function (error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // The email of the user's account used.
-      var email = error.email;
-      // The firebase.auth.AuthCredential type that was used.
-      var credential = error.credential;
-      // ...
-    });
-  }
 
   return (
     <View style={styles.container}>
@@ -115,11 +94,6 @@ const SignInScreen = ({ navigation }: any) => {
       <Button
         title={'臉書'}
         onPress={facebook}
-        containerStyle={styles.signButton}
-      />
-      <Button
-        title={'臉書B'}
-        onPress={facebookB}
         containerStyle={styles.signButton}
       />
     </View>
