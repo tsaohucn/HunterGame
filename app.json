@@ -16,8 +16,13 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "android": {
+      "package": "com.tsaohucn.huntergame",
+      "versionCode": 1
+    },
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.tsaohucn.huntergame",
+      "buildNumber": "1.0.0"
     },
     "web": {
       "favicon": "./assets/favicon.png"
