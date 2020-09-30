@@ -1,4 +1,6 @@
 import * as firebase from "firebase";
+import '@firebase/firestore';
+import * as geofirestore from 'geofirestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDxGNM6oNelELdNusP5IYUelyQbRzIly_g",
@@ -12,4 +14,12 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-export default firebase;
+const Firebase = firebase
+const Firestore = firebase.firestore();
+const GeoFirestore = geofirestore.initializeApp(Firestore as any);
+
+export {
+  Firebase,
+  Firestore,
+  GeoFirestore
+};

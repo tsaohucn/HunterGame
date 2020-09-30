@@ -4,6 +4,7 @@ import MapView, { Marker } from 'react-native-maps';
 import Avatar from "../../views/Avatar";
 import * as Permissions from 'expo-permissions';
 import * as Location from 'expo-location';
+import { GeoFirestore , Firebase} from "../../configs/Firebase";
 
 const MapScreen = () => {
 
@@ -26,6 +27,13 @@ const MapScreen = () => {
 
   useEffect(() => {
     getLocation()
+
+    GeoFirestore.collection('positions').doc('user1').set(
+      {
+           coordinates: new Firebase.firestore.GeoPoint(40.7589, -73.9851)
+        }
+    );
+
   }, []);
 
   console.log("-------latitude-------", latitude)

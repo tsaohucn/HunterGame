@@ -1,7 +1,7 @@
 import { createStackNavigator } from '@react-navigation/stack'
 import React, { useEffect, useState } from 'react'
 import { Text, View } from 'react-native'
-import firebase from './configs/Firebase'
+import { Firebase } from './configs/Firebase'
 import HomeScreen from './screens/auths/HomeScreen'
 import MapScreen from './screens/auths/MapScreen'
 import UserProfileScreen from './screens/auths/UserProfileScreen'
@@ -11,11 +11,11 @@ import Avatar from './views/Avatar'
 
 const Stack = createStackNavigator()
 
-const Router = ({ }) => {
+const Router = ({}) => {
   const [loading, setLoading] = useState(true)
   const [auth, setAuth] = useState(false)
   useEffect(() => {
-    firebase.auth().onAuthStateChanged((user) => {
+    Firebase.auth().onAuthStateChanged((user) => {
       if (user != null) {
         setAuth(true)
       } else {
@@ -63,23 +63,23 @@ const Router = ({ }) => {
             <Stack.Screen name={'UserProfile'} component={UserProfileScreen} />
           </>
         ) : (
-            <>
-              <Stack.Screen
-                name={'SignIn'}
-                component={SignInScreen}
-                options={{
-                  title: '立即登入'
-                }}
-              />
-              <Stack.Screen
-                name={'SignUp'}
-                component={SignUpScreen}
-                options={{
-                  title: '立即註冊',
-                }}
-              />
-            </>
-          )}
+          <>
+            <Stack.Screen
+              name={'SignIn'}
+              component={SignInScreen}
+              options={{
+                title: '立即登入',
+              }}
+            />
+            <Stack.Screen
+              name={'SignUp'}
+              component={SignUpScreen}
+              options={{
+                title: '立即註冊',
+              }}
+            />
+          </>
+        )}
       </Stack.Navigator>
     )
   }
