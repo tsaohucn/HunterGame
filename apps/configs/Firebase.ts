@@ -14,12 +14,12 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-const Firebase = firebase
-const Firestore = firebase.firestore();
-const GeoFirestore = geofirestore.initializeApp(Firestore as any);
+const firestore = firebase.firestore();
+const geostore = geofirestore.initializeApp(firestore as any);
 
 export {
-  Firebase,
-  Firestore,
-  GeoFirestore
-};
+  firestore,
+  geostore
+}
+export default firebase
+

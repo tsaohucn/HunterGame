@@ -1,7 +1,7 @@
 import { createStackNavigator } from '@react-navigation/stack'
 import React, { useEffect, useState } from 'react'
 import { Text, View } from 'react-native'
-import { Firebase } from './configs/Firebase'
+import firebase from './configs/Firebase'
 import HomeScreen from './screens/auths/HomeScreen'
 import MapScreen from './screens/auths/MapScreen'
 import UserProfileScreen from './screens/auths/UserProfileScreen'
@@ -15,7 +15,7 @@ const Router = ({}) => {
   const [loading, setLoading] = useState(true)
   const [auth, setAuth] = useState(false)
   useEffect(() => {
-    Firebase.auth().onAuthStateChanged((user) => {
+    firebase.auth().onAuthStateChanged((user) => {
       if (user != null) {
         setAuth(true)
       } else {
